@@ -26,22 +26,17 @@ pipeline {
 		stage('Containerize the application'){
 		steps{
 			echo 'Creating a docker image'
-			sh 'docker build -t annapoornakaradi/project1_insureme .'
+			sh 'docker build -t annapoornakaradi/banking_finance'
 		    }
 		} 
 		stage('Pushing the image to dockerhub'){
 		steps{
 			 withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-			 sh 'docker push annapoornakaradi/project1_insureme'
+			 sh 'docker push annapoornakaradi/banking_finance'
 
              }
 	    } 
 	  }
-	  	stage('Configure and deploy to the test-server'){
-		steps{
-			ansiblePlaybook become: true, credentialsId: 'ansible-key',  installation: 'ansible', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook:'/var/lib/jenkins/workspace/Project1-InsureMe/playbook.yml'
-		     }
-		    }
 
 	}
 }
