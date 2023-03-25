@@ -15,7 +15,7 @@ pipeline {
 		stage('Build the application'){
 		steps{
 			echo 'cleaning..compiling..testing..packaging..'
-			sh 'mvn clean package'
+			sh 'mvn clean install -X'
 		     }
 		  }	
    		stage('Publish HTML Report'){
