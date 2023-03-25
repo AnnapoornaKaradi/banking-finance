@@ -26,7 +26,7 @@ pipeline {
 		stage('Containerize the application'){
 		steps{
 			echo 'Creating a docker image'
-			sh 'docker build -t annapoornakaradi/banking_finance'
+			sh 'docker build -t annapoornakaradi/banking_finance .'
 		    }
 		} 
 		stage('Pushing the image to dockerhub'){
