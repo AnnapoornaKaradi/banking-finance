@@ -37,6 +37,11 @@ pipeline {
              }
 	    } 
 	  }
-
+	
+	     stage('Configure and deploy to the test-server'){
+		steps{
+			ansiblePlaybook become: true, credentialsId: 'ansible-key',  installation: 'ansible', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook:'/var/lib/jenkins/workspace/banking_finance/ansible-playbook.yml'
+		     }
+		    }
 	}
 }
