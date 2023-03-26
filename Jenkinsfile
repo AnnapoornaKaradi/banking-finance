@@ -2,8 +2,14 @@ pipeline {
 	agent any 
 	tools {
 		maven 'M2_HOME'
-	      }
+		terraform 'Terraform v1.4.2'
 
+	      }
+		
+	environment{
+			AWS_ACCESS_KEY_ID= '$(access_key)'
+			AWS_SECRET_KEY_ID= '$(secret_key)'
+		  }
 	stages {
 
 		stage("Pull the Project from GitHub"){
