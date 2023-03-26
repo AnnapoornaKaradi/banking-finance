@@ -1,6 +1,6 @@
 ---
 - name: Configure docker 
-  hosts: deployserver
+  hosts: all
   become: true
 
   tasks:
