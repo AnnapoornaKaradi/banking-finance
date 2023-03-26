@@ -2,12 +2,11 @@
 - name: Configure docker 
   hosts: deployserver
   become: true
-  connection: ssh
 
   tasks:
     - name: Update apt
       become: true
-      command: sudo apt-get update
+      command: sudo apt update
 
     - name: Install docker
       apt: 
