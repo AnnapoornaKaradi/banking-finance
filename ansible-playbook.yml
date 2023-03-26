@@ -1,12 +1,9 @@
 ---
 - name: Configure docker 
-  hosts: all
+  hosts: deployserver
   become: true
 
   tasks:
-    - name: Update apt
-      become: true
-      command: sudo apt update
 
     - name: Install docker
       apt: 
