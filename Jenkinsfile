@@ -63,4 +63,6 @@ pipeline {
 		steps{
 		ansiblePlaybook become: true, credentialsId: 'ansible-key',  installation: 'ansible', disableHostKeyChecking: true, inventory: 'deployserver.inv', playbook:'ansible-playbook.yml'
 	}
+	}
+	}
 }
