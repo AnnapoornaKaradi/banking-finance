@@ -53,14 +53,14 @@ pipeline {
 		
 		stage('Terraform plan'){
 		steps{
-			sh 'terraform plan --auto-approve'
+			sh 'terraform plan -auto-approve'
 			sleep 30
 			}
 		}
 
 		stage('Terraform apply'){
 		steps{
-			sh 'terraform apply --auto-approve'
+			sh 'terraform apply -auto-approve'
 			sleep 20
 			}
 		}
