@@ -18,11 +18,7 @@ pipeline {
 			sh 'mvn -X clean install'
 		     }
 		  }	
-   		stage('Publish HTML Report'){
-		steps{
-		      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/banking-finance/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-		  }
-		}	
+   	
 		stage('Containerize the application'){
 		steps{
 			echo 'Creating a docker image'
