@@ -51,12 +51,6 @@ pipeline {
 			}
 		}
 		
-		stage('Terraform plan'){
-		steps{
-			sh 'terraform plan -auto-approve'
-			sleep 30
-			}
-		}
 
 		stage('Terraform apply'){
 		steps{
