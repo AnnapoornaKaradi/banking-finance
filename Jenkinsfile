@@ -2,7 +2,7 @@ pipeline {
 	agent any 
 	tools {
 		maven 'M2_HOME'
-		Terraform 'Terraform-1.4.2'
+		terraform 'Terraform-1.4.2'
 
 	      }
 		
