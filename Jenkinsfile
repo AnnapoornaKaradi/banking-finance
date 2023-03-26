@@ -33,11 +33,36 @@ pipeline {
              }
 	    } 
 	  }
-	
-	     stage('Configure and deploy to the test-server'){
+		stage('Terraform init'){
 		steps{
-			ansiblePlaybook become: true, credentialsId: 'ansible-key',  installation: 'ansible', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook:'/var/lib/jenkins/workspace/Project2_BankingFinance/ansible-playbook.yml'
-		     }
-		    }
+			sh 'terraform init'
+			}
+		}
+
+		stage('Terraform fmt'){
+		steps{
+			sh 'terraform fmt'
+			}
+		}
+
+		stage('Terraform validate'){
+		steps{
+			sh 'terraform validate'
+			}
+		}
+		
+		stage('Terraform plan'){
+		steps{
+			sh 'terraform plan --auto-approve'
+			sleep 30
+			}
+		}
+
+		stage('Terraform apply'){
+		steps{
+			sh 'terraform apply --auto-approve'
+			sleep 20
+			}
+		}
 	}
 }
