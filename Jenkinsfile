@@ -24,6 +24,11 @@ pipeline {
 		     }
 		  }	
    	
+		stage('Publish HTML Report'){
+		steps{
+		      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Project2_BankingFinance/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+		  }
+		}	
 		stage('Containerize the application'){
 		steps{
 			echo 'Creating a docker image'
@@ -60,7 +65,7 @@ pipeline {
 		stage('Terraform apply'){
 		steps{
 			sh 'terraform apply -auto-approve'
-			sleep 20
+			sleep 10
 			}
 		}
 		
