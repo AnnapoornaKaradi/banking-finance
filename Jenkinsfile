@@ -66,11 +66,7 @@ pipeline {
 		
 		stage('deploy to ansible server'){
 		steps{
-<<<<<<< HEAD
 		ansiblePlaybook become:true, credentialsId: 'Test-Server',  installation: 'ansible', disableHostKeyChecking: true, inventory: '/var/lib/jenkins/workspace/Project2_BankingFinance/deployserver.inv', playbook:'/var/lib/jenkins/workspace/Project2_BankingFinance/ansible-playbook.yml'
-=======
-		ansiblePlaybook credentialsId: 'Test-Server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'deployserver.inv', playbook: 'ansible-playbook.yml'
->>>>>>> 0fe45c2c3f2919e8bf61029882ae682187b4dfb4
 	}
 	}
 	}
