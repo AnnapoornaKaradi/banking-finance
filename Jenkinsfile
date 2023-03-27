@@ -66,7 +66,7 @@ pipeline {
 		
 		stage('deploy to ansible server'){
 		steps{
-		ansiblePlaybook becomeUser: 'ubuntu', credentialsId: 'Test-Server', disableHostKeyChecking: true, installation: 'ansible', inventory: '/home/ubuntu/deployserver.inv', playbook: '/home/ubuntu/ansible-playbook.yml'
+		ansiblePlaybook credentialsId: 'Test-Server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'deployserver.inv', playbook: 'ansible-playbook.yml'
 	}
 	}
 	}
